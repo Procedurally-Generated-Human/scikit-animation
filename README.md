@@ -1,0 +1,1 @@
+This project aims to produce animated visuals from scikit-learn models. Intended for edjucational purposes
