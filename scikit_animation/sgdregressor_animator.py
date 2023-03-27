@@ -3,7 +3,7 @@ import numpy as np
 from sklearn import preprocessing
 from sklearn.linear_model import SGDRegressor
 from sklearn.preprocessing import PolynomialFeatures
-from animator import Animator
+from .animator import Animator
 
 
 class SGDRegressorAnimator(Animator):
