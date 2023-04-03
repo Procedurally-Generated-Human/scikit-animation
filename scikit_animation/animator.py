@@ -1,6 +1,8 @@
 from matplotlib import animation, pyplot as plt
 import numpy as np
 from sklearn import preprocessing
+from celluloid import Camera
+
 
 
 class Animator:
@@ -21,7 +23,7 @@ class Animator:
         fig.legend(loc="upper left")
         self.animation_init()
         self.anim = animation.FuncAnimation(fig, self.animation_update,
-                                frames=600, interval=10, blit=True)
+                                frames=60, interval=100, blit=True)
         plt.show()
 
     def animation_init(self):
@@ -49,8 +51,25 @@ class Animator:
         print("Video saved as", name)
     
 
-    
 
 
+class Animator2:
 
-    
+    def __init__(self, model, x, y, deg=1, speed=1) -> None:
+        self.model = model
+        self.model_copy = model
+        self.x = x
+        self.y = y
+        self.deg = deg
+        self.speed = speed
+        self.fig, self.ax = plt.subplots()
+        self.camera = Camera(self.fig) 
+
+    def __animation_init(self):
+        pass
+
+    def __animation_update(self):
+        pass
+
+    def animate(self):
+        pass
