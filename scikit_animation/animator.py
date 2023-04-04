@@ -22,6 +22,11 @@ class Animator:
 
     def __animation_update(self):
         pass
+        
 
     def animate(self):
+        pass
+
+
+    def save(self, name:str, format:str="mp4"):
         pass

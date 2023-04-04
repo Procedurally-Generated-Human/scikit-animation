@@ -1,14 +1,15 @@
 from matplotlib import pyplot as plt
 import numpy as np
 from sklearn import preprocessing
+from sklearn.inspection import DecisionBoundaryDisplay
 from .animator import Animator
 
 
-class SGDRegressorAnimator(Animator):
+class SGDClassifierAnimator(Animator):
     
 
     def __animation_init(self):
-        self.ax.set_title("Degree "+str(self.deg)+" Polynomial Regression")
+        self.ax.set_title("Degree "+str(self.deg)+" Polynomial Classification")
 
     def __animation_update(self):
         self.ax.scatter(self.x[:, 0], self.y, color='red')
@@ -42,4 +43,7 @@ class SGDRegressorAnimator(Animator):
         print("Creating animation...")
         animation.save(filename)
         print("Animation Saved")
+
+
+
 
