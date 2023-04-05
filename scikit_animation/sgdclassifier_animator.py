@@ -1,7 +1,6 @@
 from matplotlib import pyplot as plt
 import numpy as np
 from sklearn import preprocessing
-from sklearn.inspection import DecisionBoundaryDisplay
 from .animator import Animator
 
 
@@ -13,8 +12,7 @@ class SGDClassifierAnimator(Animator):
         self.score = 0.0
 
     def __animation_update(self):
-        if self.score == 1.0:
-            return
+        
           
         labels = np.unique(self.y)
         self.model.partial_fit(self.x, self.y, labels)
@@ -40,6 +38,8 @@ class SGDClassifierAnimator(Animator):
         y_min, y_max = self.x[:, 1].min() - 1, self.x[:, 1].max() + 1
         xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
                             np.arange(y_min, y_max, h))
+        xxx = preprocessing.PolynomialFeatures(degree=2, include_bias=False).fit_transform(xx)
+        yyy = preprocessing.PolynomialFeatures(degree=2, include_bias=False).fit_transform(yy)
         Z = self.model.predict(np.c_[xx.ravel(), yy.ravel()])
 
         # Put the result into a color plot
@@ -49,6 +49,7 @@ class SGDClassifierAnimator(Animator):
         self.camera.snap()
 
 
+
     def animate(self):
         self.__animation_init()
         for i in range(100):
@@ -56,6 +57,7 @@ class SGDClassifierAnimator(Animator):
         self.animation = self.camera.animate(interval = 100, repeat = False,
                            repeat_delay = 500)
         plt.show()
+        print(self.score)
 
     
     def save(self, name:str, format:str="mp4"):
