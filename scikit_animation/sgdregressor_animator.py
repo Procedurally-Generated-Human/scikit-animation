@@ -53,7 +53,7 @@ class SGDRegressorAnimator(Animator):
             self.__animation_init_wc()
             for i in range(500):
                 self.__animation_update_wc()
-            self.animation = self.camera.animate(interval = 10, repeat = True,
+            self.animation = self.camera.animate(interval = 1, repeat = True,
                            repeat_delay = 500)
             plt.show()
             
@@ -72,7 +72,7 @@ class SGDRegressorAnimator(Animator):
             self.__animation_init_wc()
             for i in range(500):
                 self.__animation_update_wc()
-            self.animation = self.camera.animate(interval = 10, repeat = True,
+            self.animation = self.camera.animate(interval = 20, repeat = True,
                            repeat_delay = 500)
             
         else:
